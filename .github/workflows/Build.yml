@@ -58,10 +58,10 @@ jobs:
          # rm -rf app/src/main/java/com/github/catvod/spider/Market.java
          rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Notice.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/PanSearch.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/PanSou.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Proxy.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/PTT.java
+         rm -rf app/src/main/java/com/github/catvod/spider/PanSearch.java
+         rm -rf app/src/main/java/com/github/catvod/spider/PanSou.java
+         # rm -rf app/src/main/java/com/github/catvod/spider/Proxy.java
+         rm -rf app/src/main/java/com/github/catvod/spider/PTT.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Push.java
          rm -rf app/src/main/java/com/github/catvod/spider/Star.java
          rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
