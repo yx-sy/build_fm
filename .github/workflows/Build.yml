@@ -37,6 +37,9 @@ jobs:
          # cp ../app/src/main/java/com/github/catvod/spider/Wobg.java app/src/main/java/com/github/catvod/spider/Wobg.java
          # cp ../app/src/main/java/com/github/catvod/spider/Wwgg.java app/src/main/java/com/github/catvod/spider/Wwgg.java
          cp ../app/src/main/java/com/github/catvod/utils/Image.java app/src/main/java/com/github/catvod/utils/Image.java
+         cp ../app/src/main/java/com/github/catvod/utils/Image.java app/src/main/java/com/github/catvod/utils/Glod.kt
+         cp ../app/src/main/java/com/github/catvod/utils/Image.java app/src/main/java/com/github/catvod/utils/HkTv.java
+         cp ../app/src/main/java/com/github/catvod/utils/Image.java app/src/main/java/com/github/catvod/utils/Ikanbot.java
          cp ../app/src/main/java/com/github/catvod/spider/Nongm.java app/src/main/java/com/github/catvod/spider/Nongm.java
          cp ../app/src/main/java/com/github/catvod/spider/Quanwk.java app/src/main/java/com/github/catvod/spider/Quanwk.java
          #替换图标
