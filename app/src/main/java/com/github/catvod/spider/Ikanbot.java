@@ -5,12 +5,12 @@ import com.github.catvod.bean.Result;
 import com.github.catvod.bean.Vod;
 import com.github.catvod.crawler.Spider;
 import com.github.catvod.net.OkHttp;
+import com.github.catvod.utils.ProxyVideo;
 import com.github.catvod.utils.Util;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.orhanobut.logger.Logger;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,7 +21,6 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,7 +44,7 @@ public class Ikanbot extends Spider {
             String url = element.attr("href");
             String name = element.select("img").attr("alt");
             String id = url.split("/")[2];
-            list.add(new Vod(id, name, pic));
+            list.add(new Vod(id, name, ProxyVideo.buildCommonProxyUrl(pic, Util.webHeaders(pic))));
         }
         return list;
     }
@@ -66,7 +65,7 @@ public class Ikanbot extends Spider {
             String name = element.select("img").attr("alt");
             try {
                 String id = url.split("/")[2];
-                list.add(new Vod(id, name, pic));
+                list.add(new Vod(id, name, ProxyVideo.buildCommonProxyUrl(pic, Util.webHeaders(pic))));
             } catch (Exception e) {
 
             }
@@ -77,13 +76,13 @@ public class Ikanbot extends Spider {
     @Override
     public String categoryContent(String tid, String pg, boolean filter, HashMap<String, String> extend) throws Exception {
         String target = cateUrl + tid;
-        if (!"1".equals(pg)){
+        if (!"1".equals(pg)) {
             target = target + "-p-" + pg;
         }
         Document doc = Jsoup.parse(OkHttp.string(target.concat(".html"), getHeaders()));
         List<Vod> list = parseVods(doc);
         Integer total = (Integer.parseInt(pg) + 1) * 24;
-        return Result.string(Integer.parseInt(pg), Integer.parseInt(pg) + 1, 24, total, list);
+        return Result.get().vod(list).page(Integer.parseInt(pg), Integer.parseInt(pg) + 1, 24, total).string();
     }
 
     @Override
@@ -111,7 +110,7 @@ public class Ikanbot extends Spider {
 
             // 使用正则表达式匹配 "flag" 和 "url"
             Pattern pattern = Pattern.compile("\\\"flag\\\":\\\"(.*?)\\\",\\\"url\\\":\\\"(.*?)\\\"");
-            Matcher matcher = pattern.matcher(String.valueOf(element.getAsJsonObject().get("resData")).replace("\\",""));
+            Matcher matcher = pattern.matcher(String.valueOf(element.getAsJsonObject().get("resData")).replace("\\", ""));
             String flag = "";
             String liUrl = "";
             // 提取匹配到的内容
@@ -125,22 +124,22 @@ public class Ikanbot extends Spider {
                 PlayFrom = PlayFrom + flag;
             }
             if (!"".equals(PlayUrl)) {
-                PlayUrl = PlayUrl + "$$$" + liUrl.replace("$" + flag,"");
+                PlayUrl = PlayUrl + "$$$" + liUrl.replace("$" + flag, "");
             } else {
-                PlayUrl = PlayUrl + liUrl.replace("$" + flag,"");
+                PlayUrl = PlayUrl + liUrl.replace("$" + flag, "");
             }
 
 //            PlayUrl += String.valueOf(element.getAsJsonObject().get("resData")).replace("\\","").replace("\\\"","\"");
         }
         Vod vod = new Vod();
         vod.setVodId(ids.get(0));
-        vod.setVodPic(pic);
+        vod.setVodPic(ProxyVideo.buildCommonProxyUrl(pic, Util.webHeaders(pic)));
         vod.setVodYear(year);
         vod.setVodActor(actor);
         vod.setVodArea(area);
         vod.setVodName(name);
         vod.setVodPlayFrom(PlayFrom);
-        vod.setVodPlayUrl(PlayUrl.replace("##","#").replace("#$$$","$$$"));
+        vod.setVodPlayUrl(PlayUrl.replace("##", "#").replace("#$$$", "$$$"));
         return Result.string(vod);
     }
 
@@ -153,14 +152,14 @@ public class Ikanbot extends Spider {
             String url = element.attr("href");
             String name = element.select("img").attr("alt");
             String id = url.split("/")[2];
-            list.add(new Vod(id, name, pic));
+
+            list.add(new Vod(id, name, ProxyVideo.buildCommonProxyUrl(pic, Util.webHeaders(pic))));
         }
         return Result.string(list);
     }
 
     @Override
-    public String playerContent(String flag, String id, List<String> vipFlags) throws
-            Exception {
+    public String playerContent(String flag, String id, List<String> vipFlags) throws Exception {
         return Result.get().url(id).header(getHeaders()).string();
     }
 
