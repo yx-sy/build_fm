@@ -27,7 +27,7 @@ import java.util.regex.Pattern;
 
 public class Quanwk extends Spider {
 
-    private static String siteUrl = "https://wrea.91qkw.cc";
+    private static String siteUrl = "https://888.91qkw.cc";
 
     private HashMap<String, String> getHeader() {
         HashMap<String, String> header = new HashMap<>();
