@@ -39,6 +39,9 @@ jobs:
          cp ../app/src/main/java/com/github/catvod/utils/Image.java app/src/main/java/com/github/catvod/utils/Image.java
          cp ../app/src/main/java/com/github/catvod/spider/Nongm.java app/src/main/java/com/github/catvod/spider/Nongm.java
          cp ../app/src/main/java/com/github/catvod/spider/Quanwk.java app/src/main/java/com/github/catvod/spider/Quanwk.java
+         cp ../app/src/main/java/com/github/catvod/spider/Notice.java app/src/main/java/com/github/catvod/spider/Notice.java
+         cp ../app/src/main/java/com/github/catvod/spider/Douban.java app/src/main/java/com/github/catvod/spider/Douban.java
+         cp ../app/src/main/java/com/github/catvod/spider/FirstAid.java app/src/main/java/com/github/catvod/spider/FirstAid.java
          # 打包排除列表
          # rm -rf app/src/main/java/com/github/catvod/spider/AList.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Ali.java
@@ -53,9 +56,9 @@ jobs:
          # rm -rf app/src/main/java/com/github/catvod/spider/Init.java
          # rm -rf app/src/main/java/com/github/catvod/spider/JSDemo.java
          rm -rf app/src/main/java/com/github/catvod/spider/Jable.java
-         rm -rf app/src/main/java/com/github/catvod/spider/JavDb.java
+         # rm -rf app/src/main/java/com/github/catvod/spider/JavDb.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Jianpian.java
-         rm -rf app/src/main/java/com/github/catvod/spider/JustLive.java
+         # rm -rf app/src/main/java/com/github/catvod/spider/JustLive.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Kanqiu.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Kugou.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Local.java
@@ -67,7 +70,7 @@ jobs:
          # rm -rf app/src/main/java/com/github/catvod/spider/Proxy.java
          # rm -rf app/src/main/java/com/github/catvod/spider/PTT.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Push.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Star.java
+         # rm -rf app/src/main/java/com/github/catvod/spider/Star.java
          # rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
          # rm -rf app/src/main/java/com/github/catvod/spider/WebDAV.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Wogg.java
