@@ -59,6 +59,8 @@ public class Proxy extends Spider {
                 return MixDemo.loadHtml(params.get("flag"), params.get("url"));
             } else if (what.equals("MixWeb")) {
                 return MixWeb.loadHtml(params.get("flag"), params.get("url"));
+            } else if (what.equals("xunlei8")) {
+                return Xunlei8.loadPic(params.get("pic"));
             }
         } catch (Throwable th) {
             th.printStackTrace();

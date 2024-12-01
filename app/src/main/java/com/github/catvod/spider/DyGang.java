@@ -1,14 +1,10 @@
 package com.github.catvod.spider;
 
-import com.github.catvod.crawler.Spider;
-//import com.github.catvod.net.OkHttp;
-import com.github.catvod.utils.okhttp.OkHttpUtil;
+import android.content.Context;
 
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import com.github.catvod.crawler.Spider;
+import com.github.catvod.net.OkHttp;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
@@ -25,6 +21,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * @author zhixc
@@ -80,8 +82,7 @@ public class DyGang extends Spider {
     }
 
     private OkHttpClient okClient() {
-        //return OkHttp.client();
-        return OkHttpUtil.defaultClient();
+        return OkHttp.client();
     }
 
     private String find(Pattern pattern, String html) {
@@ -112,7 +113,8 @@ public class DyGang extends Spider {
 
     private String getActor(String html) {
         String actor = find(Pattern.compile("◎演　　员　(.*?)</p", Pattern.DOTALL), html);
-        if ("".equals(actor)) actor = find(Pattern.compile("◎主　　演　(.*?)</p", Pattern.DOTALL), html);
+        if ("".equals(actor))
+            actor = find(Pattern.compile("◎主　　演　(.*?)</p", Pattern.DOTALL), html);
         return actor.replaceAll("&middot;", "·").replaceAll("\r\n", "").replaceAll("<br />", "").replaceAll("&nbsp;", "").replaceAll("　　　　 　", " / ").replaceAll("　　　　　 ", " / ").replaceAll("　　　　　　", " / ");
     }
 
@@ -197,8 +199,10 @@ public class DyGang extends Spider {
 
     @Override
     public String categoryContent(String tid, String pg, boolean filter, HashMap<String, String> extend) throws Exception {
-        if ("my_dianying".equals(tid)) tid = extend.get("cateId") == null ? "ys" : extend.get("cateId");
-        if ("my_dianshiju".equals(tid)) tid = extend.get("cateId") == null ? "dsj" : extend.get("cateId");
+        if ("my_dianying".equals(tid))
+            tid = extend.get("cateId") == null ? "ys" : extend.get("cateId");
+        if ("my_dianshiju".equals(tid))
+            tid = extend.get("cateId") == null ? "dsj" : extend.get("cateId");
         String cateUrl = siteUrl + "/" + tid;
         if (!"1".equals(pg)) cateUrl += "/index_" + pg + ".htm";
         String html = req(cateUrl, getHeader());
