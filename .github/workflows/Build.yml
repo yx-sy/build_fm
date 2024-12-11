@@ -46,7 +46,7 @@ jobs:
          cp ../app/src/main/java/com/github/catvod/utils/Image.java app/src/main/java/com/github/catvod/utils/Image.java
          cp ../app/src/main/java/com/github/catvod/spider/Nongm.java app/src/main/java/com/github/catvod/spider/Nongm.java
          cp ../app/src/main/java/com/github/catvod/spider/Quanwk.java app/src/main/java/com/github/catvod/spider/Quanwk.java
-         cp ../app/src/main/java/com/github/catvod/spider/Notice.java app/src/main/java/com/github/catvod/spider/Notice.java
+         # cp ../app/src/main/java/com/github/catvod/spider/Notice.java app/src/main/java/com/github/catvod/spider/Notice.java
          # cp ../app/src/main/java/com/github/catvod/spider/Douban.java app/src/main/java/com/github/catvod/spider/Douban.java
          cp ../app/src/main/java/com/github/catvod/spider/FirstAid.java app/src/main/java/com/github/catvod/spider/FirstAid.java
          # 打包排除列表
