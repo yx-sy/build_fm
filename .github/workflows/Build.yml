@@ -11,21 +11,30 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: set up JDK
-      uses: actions/setup-java@v3.11.0
+      uses: actions/setup-java@v4
       with:
         java-version: '18'
         distribution: 'temurin'
         
+    - name: Delete workflows
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        token: ${{ github.token }}
+        repository: ${{ github.repository }}
+        retain_days: 0 
+        #The number of days that is used to compare with the retention days of each workflow.
+        keep_minimum_runs: 2 
+        #The minimum runs to keep for each workflow.
+        
     - name: Clone project
       run: |
-        rm -rf project
         rm -rf jar/custom_spider.jar
-        git clone --recurse-submodules https://github.com/FongMi/CatVodSpider project
+        git clone --recurse-submodules https://github.com/lushunming/AndroidCatVodSpider project
+        sed -i 's/mirrors.cloud.tencent.com\gradle/services.gradle.org\/distributions/g' project/gradle/wrapper/gradle-wrapper.properties        
       
     - name: Customize Spider
       working-directory: ./project
-      run: |
-
+      run: |  
          #替换内容
          sed -i 's/預設/预设/g;s/名稱/名称/g;s/時間/时间/g' app/src/main/java/com/github/catvod/spider/AList.java
          sed -i 's/預設/预设/g;s/名稱/名称/g;s/時間/时间/g' app/src/main/java/com/github/catvod/spider/WebDAV.java
@@ -38,7 +47,7 @@ jobs:
          cp ../app/src/main/java/com/github/catvod/spider/Nongm.java app/src/main/java/com/github/catvod/spider/Nongm.java
          cp ../app/src/main/java/com/github/catvod/spider/Quanwk.java app/src/main/java/com/github/catvod/spider/Quanwk.java
          # cp ../app/src/main/java/com/github/catvod/spider/Notice.java app/src/main/java/com/github/catvod/spider/Notice.java
-         cp ../app/src/main/java/com/github/catvod/spider/Douban.java app/src/main/java/com/github/catvod/spider/Douban.java
+         # cp ../app/src/main/java/com/github/catvod/spider/Douban.java app/src/main/java/com/github/catvod/spider/Douban.java
          cp ../app/src/main/java/com/github/catvod/spider/FirstAid.java app/src/main/java/com/github/catvod/spider/FirstAid.java
          # 打包排除列表
          # rm -rf app/src/main/java/com/github/catvod/spider/AList.java
@@ -54,22 +63,20 @@ jobs:
          # rm -rf app/src/main/java/com/github/catvod/spider/Init.java
          # rm -rf app/src/main/java/com/github/catvod/spider/JSDemo.java
          rm -rf app/src/main/java/com/github/catvod/spider/Jable.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/JavDb.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Jianpian.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/JustLive.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Kanqiu.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Kugou.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Local.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Market.java
          rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
          rm -rf app/src/main/java/com/github/catvod/spider/Notice.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/PanSearch.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/PanSou.java
+         rm -rf app/src/main/java/com/github/catvod/spider/PanSearch.java
+         rm -rf app/src/main/java/com/github/catvod/spider/PanSou.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Proxy.java
          # rm -rf app/src/main/java/com/github/catvod/spider/PTT.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Push.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Star.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Star.java
+         rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
          # rm -rf app/src/main/java/com/github/catvod/spider/WebDAV.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Wogg.java
          rm -rf app/src/main/java/com/github/catvod/spider/XPath.java
@@ -77,15 +84,29 @@ jobs:
          rm -rf app/src/main/java/com/github/catvod/spider/XPathMac.java
          rm -rf app/src/main/java/com/github/catvod/spider/XPathMacFilter.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Xb6v.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/XiaoZhiTiao.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/YiSo.java
+         rm -rf app/src/main/java/com/github/catvod/spider/XiaoZhiTiao.java
+         rm -rf app/src/main/java/com/github/catvod/spider/YiSo.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Ysj.ava
-         # rm -rf app/src/main/java/com/github/catvod/spider/Zhaozy.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Zhaozy.java
+
+         #删除阿里云盘
+         # rm -rf app/src/main/java/com/github/catvod/api
+         # rm -rf app/src/main/java/com/github/catvod/bean/ali
+         #rm -rf app/src/main/java/com/github/catvod/bean/upyun
+
+         #sed -i "22,31d" app/src/main/java/com/github/catvod/spider/Push.java
+         #sed -i "/ali.player/c return null;" app/src/main/java/com/github/catvod/spider/Push.java
+         #sed -i "/ali.detail/d" app/src/main/java/com/github/catvod/spider/Push.java
+         #sed -i "/\"ali\"/d;/return Ali/d" app/src/main/java/com/github/catvod/spider/Proxy.java
+         
+         #删除Doll残留
+         # sed -i "/Doll/d" app/src/main/java/com/github/catvod/debug/MainActivity.java
 
     - name: Build the Jar
       working-directory: ./project
-      run: |        
+      run: |
          chmod +x gradlew
+         cat app/src/main/java/com/github/catvod/spider/Push.java
          ./gradlew assemblerelease --build-cache --parallel --daemon --warning-mode all
          
     - name: Customize Spider Jar
