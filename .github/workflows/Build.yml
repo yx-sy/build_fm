@@ -78,7 +78,7 @@ jobs:
          # rm -rf app/src/main/java/com/github/catvod/spider/Push.java
          rm -rf app/src/main/java/com/github/catvod/spider/Star.java
          rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Uvod.java
+         # rm -rf app/src/main/java/com/github/catvod/spider/Uvod.java
          # rm -rf app/src/main/java/com/github/catvod/spider/WebDAV.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Wogg.java
          rm -rf app/src/main/java/com/github/catvod/spider/XPath.java
