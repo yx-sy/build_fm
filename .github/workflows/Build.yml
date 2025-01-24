@@ -78,7 +78,7 @@ jobs:
          # rm -rf app/src/main/java/com/github/catvod/spider/Push.java
          rm -rf app/src/main/java/com/github/catvod/spider/Star.java
          rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Uvod.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Uvod.java
          # rm -rf app/src/main/java/com/github/catvod/spider/WebDAV.java
          # rm -rf app/src/main/java/com/github/catvod/spider/Wogg.java
          rm -rf app/src/main/java/com/github/catvod/spider/XPath.java
@@ -111,19 +111,19 @@ jobs:
          cat app/src/main/java/com/github/catvod/spider/Push.java
          ./gradlew assemblerelease --build-cache --parallel --daemon --warning-mode all
          
-    - name: Customize Spider Jar
-      working-directory: ./project
-      run: |        
-         rm -rf jar/custom_spider.jar
-         rm -rf jar/spider.jar/original/META-INF
-         curl -L https://github.com/iBotPeaches/Apktool/releases/download/v2.7.0/apktool_2.7.0.jar > jar/3rd/apktool_2.7.0.jar
+    # - name: Customize Spider Jar
+      # working-directory: ./project
+      # run: |        
+         # rm -rf jar/custom_spider.jar
+         # rm -rf jar/spider.jar/original/META-INF
+         # curl -L https://github.com/iBotPeaches/Apktool/releases/download/v2.7.0/apktool_2.7.0.jar > jar/3rd/apktool_2.7.0.jar
          # java -jar jar/3rd/baksmali-2.5.2.jar d app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex -o jar/Smali_classes
-         mkdir -p jar/spider.jar/smali/com/github/catvod/
-         mv jar/Smali_classes/com/github/catvod/spider jar/spider.jar/smali/com/github/catvod/         
-         java -jar jar/3rd/apktool_2.7.0.jar b jar/spider.jar -c
-         mv jar/spider.jar/dist/dex.jar ../jar/custom_spider.jar
-         #md5=($(md5sum ../jar/custom_spider.jar))
-         echo $(md5sum ../jar/custom_spider.jar | awk '{print $1}') > ../jar/custom_spider.jar.md5
+         # mkdir -p jar/spider.jar/smali/com/github/catvod/
+         # mv jar/Smali_classes/com/github/catvod/spider jar/spider.jar/smali/com/github/catvod/         
+         # java -jar jar/3rd/apktool_2.7.0.jar b jar/spider.jar -c
+         # mv jar/spider.jar/dist/dex.jar ../jar/custom_spider.jar
+         # #md5=($(md5sum ../jar/custom_spider.jar))
+         # echo $(md5sum ../jar/custom_spider.jar | awk '{print $1}') > ../jar/custom_spider.jar.md5
          
     - name: Upload APK
       uses: actions/upload-artifact@v3.1.2
