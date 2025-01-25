@@ -51,6 +51,7 @@ jobs:
          rm -rf app/src/main/java/com/github/catvod/spider/ChangZhang.java
          rm -rf app/src/main/java/com/github/catvod/spider/Cloud.java
          rm -rf app/src/main/java/com/github/catvod/spider/Ddrk.java
+         rm -rf app/src/main/java/com/github/catvod/spider/DianYingYunJi.java
          rm -rf app/src/main/java/com/github/catvod/spider/Glod.java
          rm -rf app/src/main/java/com/github/catvod/spider/Eighteen.java
          rm -rf app/src/main/java/com/github/catvod/spider/HkTv.java
