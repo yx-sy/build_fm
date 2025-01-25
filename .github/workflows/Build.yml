@@ -29,7 +29,7 @@ jobs:
     - name: Clone project
       run: |
         rm -rf jar/custom_spider.jar
-        git clone --recurse-submodules https://github.com/yx-sy/build_fm/tree/build-fm project
+        git clone --recurse-submodules https://github.com/yx-sy/ACVSpider project
         # git clone --recurse-submodules https://github.com/FongMi/CatVodSpider project
         sed -i 's/mirrors.cloud.tencent.com\gradle/services.gradle.org\/distributions/g' project/gradle/wrapper/gradle-wrapper.properties        
       
@@ -37,8 +37,8 @@ jobs:
       working-directory: ./project
       run: |  
          #替换内容
-         sed -i 's/預設/预设/g;s/名稱/名称/g;s/時間/时间/g' app/src/main/java/com/github/catvod/spider/AList.java
-         sed -i 's/預設/预设/g;s/名稱/名称/g;s/時間/时间/g' app/src/main/java/com/github/catvod/spider/WebDAV.java
+         # sed -i 's/預設/预设/g;s/名稱/名称/g;s/時間/时间/g' app/src/main/java/com/github/catvod/spider/AList.java
+         # sed -i 's/預設/预设/g;s/名稱/名称/g;s/時間/时间/g' app/src/main/java/com/github/catvod/spider/WebDAV.java
          sed -i 's/www.88kanqiu.tw/www.88kanqiu.love/g' app/src/main/java/com/github/catvod/spider/Kanqiu.java
          # sed -i 's/www.aliyundrive.com/(www.alipan.com|www.aliyundrive.com)/g' app/src/main/java/com/github/catvod/spider/Zhaozy.java
          #替换图标
@@ -47,63 +47,8 @@ jobs:
          cp ../app/src/main/java/com/github/catvod/utils/Image.java app/src/main/java/com/github/catvod/utils/Image.java
          cp ../app/src/main/java/com/github/catvod/spider/Nongm.java app/src/main/java/com/github/catvod/spider/Nongm.java
          cp ../app/src/main/java/com/github/catvod/spider/Quanwk.java app/src/main/java/com/github/catvod/spider/Quanwk.java
-         # cp ../app/src/main/java/com/github/catvod/spider/Notice.java app/src/main/java/com/github/catvod/spider/Notice.java
-         # cp ../app/src/main/java/com/github/catvod/spider/Douban.java app/src/main/java/com/github/catvod/spider/Douban.java
-         cp ../app/src/main/java/com/github/catvod/spider/FirstAid.java app/src/main/java/com/github/catvod/spider/FirstAid.java
          # 打包排除列表
          # rm -rf app/src/main/java/com/github/catvod/spider/AList.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Ali.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/AppYsV2.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Bili.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Dm84.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Doll.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Douban.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Eighteen.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Feiyang.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/FirstAid.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Hanime.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Init.java
-         rm -rf app/src/main/java/com/github/catvod/spider/JSDemo.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Jable.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Jianpian.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Kanqiu.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Kugou.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Local.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Market.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Notice.java
-         rm -rf app/src/main/java/com/github/catvod/spider/PanSearch.java
-         rm -rf app/src/main/java/com/github/catvod/spider/PanSou.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Proxy.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/PTT.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Push.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Star.java
-         rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Uvod.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/WebDAV.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Wogg.java
-         rm -rf app/src/main/java/com/github/catvod/spider/XPath.java
-         rm -rf app/src/main/java/com/github/catvod/spider/XPathFilter.java
-         rm -rf app/src/main/java/com/github/catvod/spider/XPathMac.java
-         rm -rf app/src/main/java/com/github/catvod/spider/XPathMacFilter.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Xb6v.java
-         rm -rf app/src/main/java/com/github/catvod/spider/XiaoZhiTiao.java
-         rm -rf app/src/main/java/com/github/catvod/spider/YiSo.java
-         # rm -rf app/src/main/java/com/github/catvod/spider/Ysj.ava
-         rm -rf app/src/main/java/com/github/catvod/spider/Zhaozy.java
-
-         #删除阿里云盘
-         # rm -rf app/src/main/java/com/github/catvod/api
-         # rm -rf app/src/main/java/com/github/catvod/bean/ali
-         #rm -rf app/src/main/java/com/github/catvod/bean/upyun
-
-         #sed -i "22,31d" app/src/main/java/com/github/catvod/spider/Push.java
-         #sed -i "/ali.player/c return null;" app/src/main/java/com/github/catvod/spider/Push.java
-         #sed -i "/ali.detail/d" app/src/main/java/com/github/catvod/spider/Push.java
-         #sed -i "/\"ali\"/d;/return Ali/d" app/src/main/java/com/github/catvod/spider/Proxy.java
-         
-         #删除Doll残留
-         # sed -i "/Doll/d" app/src/main/java/com/github/catvod/debug/MainActivity.java
 
     - name: Build the Jar
       working-directory: ./project
