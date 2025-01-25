@@ -72,10 +72,10 @@ jobs:
          rm -rf app/src/main/java/com/github/catvod/spider/Star.java
          rm -rf app/src/main/java/com/github/catvod/spider/Supjav.java
          rm -rf app/src/main/java/com/github/catvod/spider/TvDy.java
-         rm -rf app/src/main/java/com/github/catvod/spider/UC.java
+         # rm -rf app/src/main/java/com/github/catvod/spider/UC.java
          rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
          rm -rf app/src/main/java/com/github/catvod/spider/W55Movie.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Wogg.java
+         # rm -rf app/src/main/java/com/github/catvod/spider/Wogg.java
          rm -rf app/src/main/java/com/github/catvod/spider/XiaoZhiTiao.java
          rm -rf app/src/main/java/com/github/catvod/spider/XuanFeng.java
          rm -rf app/src/main/java/com/github/catvod/spider/YunPanBa.java
