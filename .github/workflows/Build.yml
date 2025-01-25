@@ -47,6 +47,9 @@ jobs:
          cp ../app/src/main/java/com/github/catvod/utils/Image.java app/src/main/java/com/github/catvod/utils/Image.java
          cp ../app/src/main/java/com/github/catvod/spider/Nongm.java app/src/main/java/com/github/catvod/spider/Nongm.java
          cp ../app/src/main/java/com/github/catvod/spider/Quanwk.java app/src/main/java/com/github/catvod/spider/Quanwk.java
+         cp ../app/src/main/java/com/github/catvod/spider/AppXY.java app/src/main/java/com/github/catvod/spider/AppXY.java
+         cp ../app/src/main/java/com/github/catvod/spider/Living.java app/src/main/java/com/github/catvod/spider/Living.java
+         cp ../app/src/main/java/com/github/catvod/spider/YHDM.java app/src/main/java/com/github/catvod/spider/YHDM.java
          # 打包排除列表
          # rm -rf app/src/main/java/com/github/catvod/spider/AList.java
 
