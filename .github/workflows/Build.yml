@@ -47,11 +47,39 @@ jobs:
          cp ../app/src/main/java/com/github/catvod/utils/Image.java app/src/main/java/com/github/catvod/utils/Image.java
          cp ../app/src/main/java/com/github/catvod/spider/Nongm.java app/src/main/java/com/github/catvod/spider/Nongm.java
          cp ../app/src/main/java/com/github/catvod/spider/Quanwk.java app/src/main/java/com/github/catvod/spider/Quanwk.java
-         cp ../app/src/main/java/com/github/catvod/spider/AppXY.java app/src/main/java/com/github/catvod/spider/AppXY.java
-         cp ../app/src/main/java/com/github/catvod/spider/Living.java app/src/main/java/com/github/catvod/spider/Living.java
-         cp ../app/src/main/java/com/github/catvod/spider/YHDM.java app/src/main/java/com/github/catvod/spider/YHDM.java
          # 打包排除列表
-         # rm -rf app/src/main/java/com/github/catvod/spider/AList.java
+         rm -rf app/src/main/java/com/github/catvod/spider/ChangZhang.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Cloud.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Ddrk.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Glod.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Eighteen.java
+         rm -rf app/src/main/java/com/github/catvod/spider/HkTv.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Jable.java
+         rm -rf app/src/main/java/com/github/catvod/spider/JavDb.java
+         rm -rf app/src/main/java/com/github/catvod/spider/JustLive.java
+         rm -rf app/src/main/java/com/github/catvod/spider/KuaKeBa.java
+         rm -rf app/src/main/java/com/github/catvod/spider/KuaKeS.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Libvio.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Mogg.java
+         rm -rf app/src/main/java/com/github/catvod/spider/NCat.java
+         rm -rf app/src/main/java/com/github/catvod/spider/NGkt.java
+         rm -rf app/src/main/java/com/github/catvod/spider/PanSearch.java
+         rm -rf app/src/main/java/com/github/catvod/spider/PanSou.java
+         rm -rf app/src/main/java/com/github/catvod/spider/QiLeSo.java
+         rm -rf app/src/main/java/com/github/catvod/spider/QxiTv.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Star.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Supjav.java
+         rm -rf app/src/main/java/com/github/catvod/spider/TvDy.java
+         rm -rf app/src/main/java/com/github/catvod/spider/UC.java
+         rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
+         rm -rf app/src/main/java/com/github/catvod/spider/W55Movie.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Wogg.java
+         rm -rf app/src/main/java/com/github/catvod/spider/XiaoZhiTiao.java
+         rm -rf app/src/main/java/com/github/catvod/spider/XuanFeng.java
+         rm -rf app/src/main/java/com/github/catvod/spider/YunPanBa.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Zhaozy.java
+         rm -rf app/src/main/java/com/github/catvod/spider/YiSo.java
 
     - name: Build the Jar
       working-directory: ./project
