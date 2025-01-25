@@ -62,7 +62,7 @@ jobs:
          rm -rf app/src/main/java/com/github/catvod/spider/KuaKeS.java
          rm -rf app/src/main/java/com/github/catvod/spider/Libvio.java
          rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Mogg.java
+         # rm -rf app/src/main/java/com/github/catvod/spider/Mogg.java
          rm -rf app/src/main/java/com/github/catvod/spider/NCat.java
          rm -rf app/src/main/java/com/github/catvod/spider/NGkt.java
          rm -rf app/src/main/java/com/github/catvod/spider/PanSearch.java
